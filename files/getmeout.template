@@ -21,7 +21,7 @@ else
 		if [ "$INFILE" == "$VALUE" ];
 			then
 			# they have won remove /etc/init/lightdm.override
-			#and copy legal back to what it was 
+			#and copy motd back to what it was 
 			#cd .. 
 			#rm /etc/init/lightdm.override
 			#mv ./files/legal /etc/legal

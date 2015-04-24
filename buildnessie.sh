@@ -1,58 +1,59 @@
 #!/bin/bash 
+#buildnessie 
+#0. general setmeup.template should be rolled in first 
+#1. compiles the info files from the file directory into saveme.sh 
+#2. rolls saveme.sh into  setmeup.sh 
+#3. roll in getmeout.sh should be no changes 
 
 
-for f in *.info
-do
-	echo "cooking - $f into program"
-done
+#0. setmeup.template 
+echo "$(cat files/setmeup.template)"> setmeup.sh
+# motd from motd.template is added to setmeup.sh 
+echo " # new motd from motd.template is below">> setmeup.sh
+echo "echo\"">> setmeup.sh
+echo "$(cat files/motd.template)">> setmeup.sh
+echo "\" > /etc/motd" >> setmeup.sh
+
+# getmeout.sh from getmeout.template is added to setmeup.sh 
+echo " # getmeout.sh from getmeout.template is below">> setmeup.sh
+echo "echo\"">> setmeup.sh
+echo "$(cat files/getmeout.template)">> setmeup.sh
+echo "\" > ./getmeout.sh" >> setmeup.sh
 
 
+#### this bit has broken my brain for now 
 
-#buildnessie builds the info files from the file directory into set me up also builds savem
-echo "#!/bin/bash 
+# saveme.sh from saveme.template and .info files is added to setmeup.sh 
+#echo " # saveme.sh from saveme.template and .info is below">> setmeup.sh
+#echo "echo\"">> setmeup.sh
 
-
-
-
-
-# need to prompt  must be run as root use sudo 
-if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root try using sudo" 1>&2
-   exit 1
-fi
-
-# this tells the desktop manager to not turn on mwahahaha
-echo manual >> /etc/init/lightdm.override
-
-# general outline 
-# one file breaks X11 / xfce ( do this by disabling lightdm )
-# theeeenn create all the file that you need for the rest of the workshop ?
-mkdir files 
+#echo "TITLE=()">> setmeup.sh
+#echo "TEXT=()">> setmeup.sh
+#for f in file/*.info
+#do
+#	echo "TITLE+=(\"head -n 1 file\/f \")"
+#	echo "text+=(\"tail -n +2 file\/f \")"
+	
+#done
+#echo "\" > ./saveme.sh" >> setmeup.sh
 
 
-echo "                _..--+~/@-@--.
-           _-=~      (  .    )
-        _-~     _.--=.\ \''''
-      _~      _-       \ \_\
-     =      _=          '--'
-    '      =                             .
-   :      :                              '=_. ___
-   |      ;                                  '~--.~.
-   ;      ;                                       } |
-   =       \             __..-...__           ___/__/__
-   :        =_     _.-~~          ~~--.__
-__  \         ~-+-~                   ___~=_______
-     ~@#~~ == ...______ __ ___ _--~~--_
-Oh no your computer has been broken by the Loch Ness monster before he will leave your computer and restore the GUI ( graphical user interface) you must  perform a series of quests for him
-1. create a folder called first
-2. create a file inside the folder called first named potato
-3. edit that text file to say 'salad'
-" > /etc/motd
+#tail -n +2 a.csv this prints all but first line of 1 
 
 #will add all the other files here when they are done 
 
 
 # hard to say if i should make a helper that they type the command and it gives them a cut down version of the
 
-sudo reboot  #(that'll teach them )
-" >./setmeup.sh
+
+echo "#getmeout.sh starts here" >> setmeup.sh
+echo "#!/bin/bash" >> setmeup.sh
+echo 
+echo "$(cat files/getmeout.sh)">> setmeup.sh
+
+# should be last lines of setmeup.sh actually "breaks" the system and reboots
+
+echo "##  below to kill's the gui by disabling lightdm "  >> setmeup.sh
+echo "# can be started manually by using "sudo service lightdm start"" >> setmeup.sh
+echo "echo manual >> /etc/init/lightdm.override" >> setmeup.sh
+echo "reboot" >> setmeup.sh
