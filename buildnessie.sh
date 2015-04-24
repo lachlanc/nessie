@@ -7,7 +7,7 @@
 
 
 #0. setmeup.template 
-echo '$(cat files/setmeup.template)'> setmeup.sh
+echo "$(cat files/setmeup.template)"> setmeup.sh
 # motd from motd.template is added to setmeup.sh 
 echo " # new motd from motd.template is below">> setmeup.sh
 echo "echo\"">> setmeup.sh
@@ -16,9 +16,9 @@ echo '" > /etc/motd' >> setmeup.sh
 
 # getmeout.sh from getmeout.template is added to setmeup.sh 
 echo " # getmeout.sh from getmeout.template is below">> setmeup.sh
-echo 'echo\"'>> setmeup.sh
+echo 'echo "'>> setmeup.sh
 echo "$(cat files/getmeout.template)">> setmeup.sh
-echo '\" > ./getmeout.sh' >> setmeup.sh
+echo '" > ./getmeout.sh' >> setmeup.sh
 
 
 #### this bit has broken my brain for now 
