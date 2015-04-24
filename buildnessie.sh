@@ -47,4 +47,4 @@ echo '" > ./getmeout.sh' >> setmeup.sh
 echo "##  below to kill's the gui by disabling lightdm "  >> setmeup.sh
 echo '# can be started manually by using "sudo service lightdm start"' >> setmeup.sh
 echo 'echo manual >> /etc/init/lightdm.override' >> setmeup.sh
-echo "reboot" >> setmeup.sh
+echo "reboot" > setmeup.sh
