@@ -7,18 +7,18 @@
 
 
 #0. setmeup.template 
-echo "$(cat files/setmeup.template)"> setmeup.sh
+echo '$(cat files/setmeup.template)'> setmeup.sh
 # motd from motd.template is added to setmeup.sh 
 echo " # new motd from motd.template is below">> setmeup.sh
 echo "echo\"">> setmeup.sh
-echo "$(cat files/motd.template)">> setmeup.sh
-echo "\" > /etc/motd" >> setmeup.sh
+echo '$(cat files/motd.template)'>> setmeup.sh
+echo '" > /etc/motd' >> setmeup.sh
 
 # getmeout.sh from getmeout.template is added to setmeup.sh 
 echo " # getmeout.sh from getmeout.template is below">> setmeup.sh
-echo "echo\"">> setmeup.sh
-echo "$(cat files/getmeout.template)">> setmeup.sh
-echo "\" > ./getmeout.sh" >> setmeup.sh
+echo 'echo\"'>> setmeup.sh
+echo '$(cat files/getmeout.template)'>> setmeup.sh
+echo '\" > ./getmeout.sh' >> setmeup.sh
 
 
 #### this bit has broken my brain for now 
@@ -49,11 +49,11 @@ echo "\" > ./getmeout.sh" >> setmeup.sh
 echo "#getmeout.sh starts here" >> setmeup.sh
 echo "#!/bin/bash" >> setmeup.sh
 echo 
-echo "$(cat files/getmeout.sh)">> setmeup.sh
+echo '$(cat files/getmeout.sh)'>> setmeup.sh
 
 # should be last lines of setmeup.sh actually "breaks" the system and reboots
 
 echo "##  below to kill's the gui by disabling lightdm "  >> setmeup.sh
-echo "# can be started manually by using "sudo service lightdm start"" >> setmeup.sh
-echo "echo manual >> /etc/init/lightdm.override" >> setmeup.sh
+echo '# can be started manually by using "sudo service lightdm start"' >> setmeup.sh
+echo 'echo manual >> /etc/init/lightdm.override' >> setmeup.sh
 echo "reboot" >> setmeup.sh
