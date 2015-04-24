@@ -1,0 +1,45 @@
+Change access permissions, change mode.
+
+Syntax or Usage
+       chmod [Options]... Mode [,Mode]... file...
+
+       chmod [Options]... --reference=RFile file...
+
+Options
+
+  -R, --recursive         change files and directories recursively
+
+Symbolic Mode
+
+The format of a symbolic mode is a combination of the letters +-= rwxXstugoa
+Multiple symbolic operations can be given, separated by commas.
+
+The full syntax is [ugoa...][[+-=][rwxXstugo...]...][,...] but this is explained below.
+
+The letters 'rwx' select the permission to grant (+) or take away (-) for the affected users: 
+r	Read
+w	Write
+x	Execute (or access for directories)
+
+A combination of the letters ugoa controls which users' access to the file will be changed:
+
+u	The permissions that the User who owns the file currently has for it.
+g 	The permissions that other users in the file's Group have for it.
+o	Permissions that Other users not in the file's group have for it.
+a 	The permissions of everyone or all.
+
+Examples
+Deny execute permission to everyone:
+$ chmod a-x file
+
+Allow read permission to everyone:
+$ chmod a+r file
+
+Make a file readable and writable by the group and others:
+$ chmod go+rw file
+
+Make a shell script executable by the user/owner
+$ chmod u+x myscript.sh
+
+it is possible to use chmod with Numerical mode but it acheives the same 
+goal and is covered elsewhere (man chmod)

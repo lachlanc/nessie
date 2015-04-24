@@ -1,0 +1,10 @@
+pwd
+
+Print Working Directory (shell builtin)
+
+Syntax or Usage
+      pwd 
+
+The default action is to show the current folder as an absolute path.
+
+

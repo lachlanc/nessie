@@ -1,0 +1,5 @@
+Remove files (delete/unlink)
+
+Syntax or usage
+      rm file  (Remove file)
+      rm -r file  (Remove directories and their contents recursively)

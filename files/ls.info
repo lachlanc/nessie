@@ -1,0 +1,44 @@
+ls
+
+List information about files.
+
+Syntax
+      ls [Options]... [File]...
+
+Key
+      entries are sorted alphabetically 
+
+  -a, --all              Do not hide entries starting with .
+
+  -l                     Use a long listing format
+
+  --help                 display help and exit
+
+  --version              output version information and exit
+
+
+Examples
+
+# List the contents of your home directory
+$ ls ~
+
+# list everything in a vertical list:
+$ ls -al
+
+total 109
+drwxr-xr-x  18 root     root         4096 Jun  9 21:12 ./
+drwxr-xr-x  18 root     root         4096 Jun  9 21:12 ../
+drwxr-xr-x   2 root     root         4096 Jun  9 21:14 bin/
+drwxr-xr-x   3 root     root         1024 Jun  9 20:32 boot/
+drwxr-xr-x   6 root     root        36864 Jul 12 10:26 dev/
+drwxr-xr-x  34 root     root         4096 Jul 12 10:25 etc/
+^
+the first column is the file type 
+d = directory
+f = file
+
+# List the directories in the current directory:
+$ ls -d */
+
+# list ALL subdirectories
+$ ls *

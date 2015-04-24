@@ -1,0 +1,8 @@
+nano -Simple text editor, Nano's ANOther editor.
+
+Commands are displayed at the bottom of the screen and context-sensitive help is provided. 
+^ Character in commands represents the Ctrl key on your  keyboard
+nano also implements features including, "search and replace" and "go to line and column number".
+
+Syntax or Usage
+      nano FILE

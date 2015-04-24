@@ -1,0 +1,15 @@
+mkdir
+
+Create new folder(s), if they do not already exist.
+
+SYNTAX
+      mkdir [Options] folder...
+
+      mkdir "Name with spaces"
+
+OPTIONS
+  -m, --mode=MODE   set permission mode (as in chmod), not rwxrwxrwx - umask
+  -p, --parents     no error if existing, make parent directories as needed
+      --verbose     print a message for each created directory
+
+mkdir creates the standard entries . (dot) for the current folder and .. (dot dot) for its parent

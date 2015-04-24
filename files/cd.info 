@@ -1,0 +1,41 @@
+Change Directory - change the current working directory to a specific Folder.
+
+Syntax or Usage
+      cd [Directory]
+
+If directory is given, changes the shell's working directory todirectory
+If not, changes to HOME (shell variable).
+If .. is given changes folder to one above current folder
+If the current directory, is used as a search path (relative addresing).
+If directory begins with a slash, absolute addresing is used.
+
+If directory is `-', this will change to the previous directory location (equivalent to $OLDPWD ).
+
+
+Examples
+
+Move to the sybase folder
+$ cd /usr/local/sybase
+$ pwd
+/usr/local/sybase
+
+Change to another folder
+$ cd /var/log
+$ pwd
+/var/log
+
+Quickly get back
+$ cd -
+$ pwd
+/usr/local/sybase
+
+move up one folder
+$ cd ..
+$ pwd
+/usr/local/
+
+Move to the sybase folder
+$ cd sybase 
+
+Move back to your home folder
+$ cd 
