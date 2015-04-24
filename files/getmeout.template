@@ -35,7 +35,7 @@ else
 			echo $INFILE_NO_WHITESPACE
 			if [ $INFILE_NO_WHITESPACE != $INFILE ];
 				then 
-				echo "there is additional whitespace in your file (spaces or extra blank lines) remove them to continue"
+				echo 'there is additional whitespace in your file (spaces or extra blank lines) remove them to continue'
 				else
 				
 				if [ ${INFILE,,} != $INFILE ] # this checks for any upper case char's

@@ -15,10 +15,14 @@ echo "$(cat files/motd.template)">> setmeup.sh
 echo '" > /etc/motd' >> setmeup.sh
 
 # getmeout.sh from getmeout.template is added to setmeup.sh 
+
+#echo 'echo \''>> setmeup.sh
+#echo "$(cat files/getmeout.template)">> setmeup.sh
+#echo '\' > ./getmeout.sh' >> setmeup.sh
+
 echo " # getmeout.sh from getmeout.template is below">> setmeup.sh
-echo 'echo "'>> setmeup.sh
-echo "$(cat files/getmeout.template)">> setmeup.sh
-echo '" > ./getmeout.sh' >> setmeup.sh
+echo "\"s=`base64 files/getmeout.template`\"">> setmeup.sh
+echo 'echo "$s" | base64 --decode >getmeout.sh'>> setmeup.sh
 
 
 #### this bit has broken my brain for now 
@@ -29,7 +33,7 @@ echo '" > ./getmeout.sh' >> setmeup.sh
 
 #echo "TITLE=()">> setmeup.sh
 #echo "TEXT=()">> setmeup.sh
-#for f in file/*.info
+#for f in "file/*.info"
 #do
 #	echo "TITLE+=(\"head -n 1 file\/f \")"
 #	echo "text+=(\"tail -n +2 file\/f \")"
