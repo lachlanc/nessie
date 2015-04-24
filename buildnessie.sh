@@ -11,13 +11,13 @@ echo '$(cat files/setmeup.template)'> setmeup.sh
 # motd from motd.template is added to setmeup.sh 
 echo " # new motd from motd.template is below">> setmeup.sh
 echo "echo\"">> setmeup.sh
-echo '$(cat files/motd.template)'>> setmeup.sh
+echo "$(cat files/motd.template)">> setmeup.sh
 echo '" > /etc/motd' >> setmeup.sh
 
 # getmeout.sh from getmeout.template is added to setmeup.sh 
 echo " # getmeout.sh from getmeout.template is below">> setmeup.sh
 echo 'echo\"'>> setmeup.sh
-echo '$(cat files/getmeout.template)'>> setmeup.sh
+echo "$(cat files/getmeout.template)">> setmeup.sh
 echo '\" > ./getmeout.sh' >> setmeup.sh
 
 
@@ -41,15 +41,6 @@ echo '\" > ./getmeout.sh' >> setmeup.sh
 #tail -n +2 a.csv this prints all but first line of 1 
 
 #will add all the other files here when they are done 
-
-
-# hard to say if i should make a helper that they type the command and it gives them a cut down version of the
-
-
-echo "#getmeout.sh starts here" >> setmeup.sh
-echo "#!/bin/bash" >> setmeup.sh
-echo 
-echo '$(cat files/getmeout.sh)'>> setmeup.sh
 
 # should be last lines of setmeup.sh actually "breaks" the system and reboots
 
