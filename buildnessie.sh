@@ -10,7 +10,7 @@
 echo "$(cat files/setmeup.template)"> setmeup.sh
 # motd from motd.template is added to setmeup.sh 
 echo " # new motd from motd.template is below">> setmeup.sh
-echo "echo\"">> setmeup.sh
+echo "echo \"">> setmeup.sh
 echo "$(cat files/motd.template)">> setmeup.sh
 echo '" > /etc/motd' >> setmeup.sh
 
@@ -21,7 +21,7 @@ echo '" > /etc/motd' >> setmeup.sh
 #echo '\' > ./getmeout.sh' >> setmeup.sh
 
 echo " # getmeout.sh from getmeout.template is below">> setmeup.sh
-echo "\"s=`base64 files/getmeout.template`\"">> setmeup.sh
+echo "s=\"`base64 files/getmeout.template`\"">> setmeup.sh
 echo 'echo "$s" | base64 --decode >getmeout.sh'>> setmeup.sh
 
 
@@ -51,4 +51,4 @@ echo 'echo "$s" | base64 --decode >getmeout.sh'>> setmeup.sh
 echo "##  below to kill's the gui by disabling lightdm "  >> setmeup.sh
 echo '# can be started manually by using "sudo service lightdm start"' >> setmeup.sh
 echo 'echo manual >> /etc/init/lightdm.override' >> setmeup.sh
-echo "reboot" > setmeup.sh
+echo "reboot" >> setmeup.sh
